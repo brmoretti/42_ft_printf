@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   printf_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/26 23:39:17 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/29 20:49:34 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/29 21:41:30 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#include <stdio.h>
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
+int	main(void)
+{
+	int	*ptr;
+	unsigned long	test;
+	int	n;
 
-void	ft_putchar(char c);
-size_t	ft_strlen(const char *s);
-void	ft_putstr(const char *s);
-
-#endif
+	n = 10;
+	ptr = &n;
+	test = (unsigned long)ptr;
+	printf("%p, %lu\n", ptr, sizeof(ptr));
+	printf("%x\n", test);
+	printf("%.0d\n", n);
+	return 0;
+}
