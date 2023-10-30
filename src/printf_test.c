@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:49:34 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/29 21:41:30 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/10/30 15:57:49 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	ptr = &n;
 	test = (unsigned long)ptr;
 	printf("%p, %lu\n", ptr, sizeof(ptr));
-	printf("%x\n", test);
+	printf("%lx\n", test);
 	printf("%.0d\n", n);
 	return 0;
 }
