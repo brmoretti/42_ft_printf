@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:49:34 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/31 17:29:19 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/01 13:02:51 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	main(void)
 	printf("%p, %lu\n", ptr, sizeof(ptr));
 	printf("%lx\n", test);
 	printf("%d\n", n);
-	printf("%i\n", 0x10);
+	printf("%0 8d\n", 10);
 	return 0;
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:34:00 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/26 23:34:53 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/01 16:03:50 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/01 16:06:26 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	**ft_clear_tab(void **tab)
 {
-	size_t	i;
+	void	**ptr;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	ptr = tab;
+	while (*ptr)
+		free (*ptr++);
+	free (tab);
+	return (NULL);
 }
