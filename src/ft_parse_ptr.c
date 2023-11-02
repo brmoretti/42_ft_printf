@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_test.c                                      :+:      :+:    :+:   */
+/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 20:49:34 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 04:05:05 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/02 15:42:27 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(void)
+char	*ft_parse_ptr(char **token, unsigned long ptr)
 {
-	int	*ptr;
-	unsigned long	test;
-	int	n;
+	char		*prefix;
+	char		*address_no;
+	char		*str;
 
-	n = 10;
-	ptr = &n;
-	test = (unsigned long)ptr;
-	printf("%p, %lu\n", ptr, sizeof(ptr));
-	printf("%lx\n", test);
-	printf("%d\n", n);
-	printf("%1s\n", "abc");
-	printf("%0 8d\n", 10);
-	printf("%c %c %d\n", 'a');
-	printf("%123%\n");
-	return 0;
+	free (*token);
+	prefix = ft_strdup("0x");
+	if (!prefix)
+		return (NULL);
+	address_no = ft_itoa_base_ulong(ptr, 16, 0);
+	if (!address_no)
+	{
+		free (prefix);
+		return (NULL);
+	}
+	*token = ft_strjoin(prefix, address_no);
+	free (prefix);
+	free (address_no);
+	return (*token);
 }

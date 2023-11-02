@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 03:27:10 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:06:24 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@ char	*ft_itoa_base_ulong(unsigned long n, int base, int upper);
 char	**ft_clear_tab(char **tab);
 char	**ft_split_printf(const char *s);
 char	ft_last_char(char *str);
+
+char	*ft_parse_char(char **token, int c);
+char	*ft_parse_int(char **token, int n);
+char	*ft_parse_ptr(char **token, unsigned long ptr);
+char	*ft_parse_string(char **token, char *str);
+char	*ft_parse_uint(char **token, unsigned int n, char conversion);
+
+char	*ft_flags_flow(char	*flags, char *token);
 
 #endif

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_parse_uint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 23:18:54 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 16:05:01 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/02 15:43:06 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int	main(void)
+char	*ft_parse_uint(char **token, unsigned int n, char conversion)
 {
-	printf("%lu", sizeof(void *));
-	return (0);
+	unsigned long	n_str;
+	char			*str;
+
+	free (*token);
+	if (conversion == 'u')
+		*token = ft_itoa_base_uint(n, 10, 0);
+	else if (conversion == 'x')
+		*token = ft_itoa_base_uint(n, 16, 0);
+	else
+		*token = ft_itoa_base_uint(n, 16, 1);
+	if (!*token)
+		return (NULL);
+	return (*token);
 }
