@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:11:41 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/01 16:09:54 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/01 21:19:45 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ char	**ft_split_printf(const char *s)
 	{
 		tab[i] = ft_split_malloc(mover);
 		if (tab[i] == NULL)
-			return (ft_clear(tab));
+			return (ft_clear_tab(tab));
 		mover = ft_copy_split_printf(tab[i], mover);
 	}
 	return (tab);

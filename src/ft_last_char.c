@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
+/*   ft_last_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:03:50 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/01 21:21:17 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 03:16:02 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/02 03:26:46 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	**ft_clear_tab(char **tab)
+char	ft_last_char(char *str)
 {
-	char	**ptr;
-
-	ptr = tab;
-	while (*ptr)
-		free (*ptr++);
-	free (tab);
-	return (NULL);
+	while (*str && *(str + 1))
+		str++;
+	return (*str);
 }
