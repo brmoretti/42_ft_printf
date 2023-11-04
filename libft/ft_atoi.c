@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:24:51 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:37:43 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+int	ft_atoi(const char *nptr)
 {
-	char		*prefix;
-	char		*address_no;
+	int	sign;
+	int	nb;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
-	{
-		free (prefix);
-		return (NULL);
-	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	sign = 1;
+	nb = 0;
+	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
+		|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r')
+		nptr++;
+	if (*nptr == '-')
+		sign = -1;
+	if (*nptr == '-' || *nptr == '+')
+		nptr++;
+	while (*nptr && '0' <= *nptr && *nptr <= '9')
+		nb = nb * 10 + (*(nptr++) - '0');
+	return (sign * nb);
 }

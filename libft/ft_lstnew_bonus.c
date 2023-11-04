@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/13 10:31:55 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:40:32 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+t_list	*ft_lstnew(void *content)
 {
-	char		*prefix;
-	char		*address_no;
+	t_list	*el;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
+	el = malloc(sizeof(t_list));
+	if (el == NULL)
 		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
-	{
-		free (prefix);
-		return (NULL);
-	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	el->content = content;
+	el->next = NULL;
+	return (el);
 }

@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 18:44:21 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:44:07 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+char	*ft_strrchr(const char *s, int c)
 {
-	char		*prefix;
-	char		*address_no;
+	char	*occ;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	occ = NULL;
+	while (*s)
 	{
-		free (prefix);
-		return (NULL);
+		if (*s++ == (unsigned char)c)
+			occ = (char *)(s - 1);
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	if (!(unsigned char)c)
+		occ = (char *)(s);
+	return (occ);
 }

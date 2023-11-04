@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 20:41:42 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:43:53 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char		*prefix;
-	char		*address_no;
-
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	if (!n)
+		return (0);
+	while ((*s1 || *s2) && (n-- > 0))
 	{
-		free (prefix);
-		return (NULL);
+		if (*(s1++) != *(s2++))
+			return (*(unsigned char *)(--s1) - *(unsigned char *)(--s2));
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	return (0);
 }

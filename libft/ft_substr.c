@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 22:24:11 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/18 12:29:11 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*prefix;
-	char		*address_no;
+	char			*ptr;
+	size_t			i;
+	unsigned int	len_s;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
+	if (!s)
 		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
-	{
-		free (prefix);
+	len_s = (unsigned int)ft_strlen(s);
+	if (start >= len_s)
+		len = 0;
+	else if ((size_t)start + len > (size_t)len_s)
+		len = (size_t)len_s - (size_t)start;
+	ptr = malloc(len + 1);
+	if (!ptr)
 		return (NULL);
-	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	i = 0;
+	while (start <= len_s && i < len)
+		ptr[i++] = s[start++];
+	ptr[i] = '\0';
+	return (ptr);
 }

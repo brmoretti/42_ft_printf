@@ -6,12 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 15:59:30 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:26:48 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h> //DELETE
 
 int	ft_conversion_flow(char **tab, va_list args)
 {
@@ -41,6 +40,7 @@ int	ft_conversion_flow(char **tab, va_list args)
 	}
 	return (1);
 }
+
 int	ft_print_tab(char **tab)
 {
 	int	len;
@@ -65,23 +65,10 @@ int	ft_printf(const char *format, ...)
 	tab = ft_split_printf(format);
 	if (!tab)
 		return (0);
+	len = -1;
 	if (ft_conversion_flow(tab, args))
 		len = ft_print_tab(tab);
 	ft_clear_tab(tab);
 	va_end(args);
 	return (len);
-}
-
-#include <limits.h>
-
-int	main(void)
-{
-	char	c = 'a';
-	char	str[] = "test";
-	int		d = INT_MAX;
-	int		u = UINT_MAX;
-
-	ft_printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	return (0);
 }

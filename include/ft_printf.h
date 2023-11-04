@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 17:06:24 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:54:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include <stdarg.h>
+
+int		ft_printf(const char *format, ...);
 
 char	*ft_itoa_base_int(int n, int base, int upper);
 char	*ft_itoa_base_uint(unsigned int n, int base, int upper);

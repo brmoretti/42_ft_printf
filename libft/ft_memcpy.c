@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 11:39:49 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:41:18 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char		*prefix;
-	char		*address_no;
+	unsigned char	*dest_cpy;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
-	{
-		free (prefix);
-		return (NULL);
-	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	if (!dest && !src)
+		return (dest);
+	dest_cpy = (unsigned char *)dest;
+	while (n-- > 0)
+		*(dest_cpy++) = *((unsigned char *)src++);
+	return (dest);
 }

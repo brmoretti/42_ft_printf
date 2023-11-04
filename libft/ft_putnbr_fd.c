@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/12 20:53:59 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:42:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char		*prefix;
-	char		*address_no;
+	char	s[11];
+	int		i;
+	int		digit;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	i = 11;
+	s[--i] = '\0';
+	if (n == 0)
+		s[--i] = '0';
+	else if (n < 0)
 	{
-		free (prefix);
-		return (NULL);
+		write(fd, "-", 1);
+		digit = -(n % 10);
+		s[--i] = (char)digit + '0';
+		n = -(n / 10);
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	while (n > 0)
+	{
+		digit = n % 10;
+		s[--i] = (char)digit + '0';
+		n = n / 10;
+	}
+	ft_putstr_fd(&s[i], fd);
 }

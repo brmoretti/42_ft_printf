@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 17:07:22 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:59:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 char	*ft_parse_int(char **token, int n)
 {
-	unsigned long	n_str;
-	char			*converted;
-
-	converted = ft_itoa_base_int(n, 10, 0);
-	if (!converted)
+	free(*token);
+	*token = ft_itoa_base_int(n, 10, 0);
+	if (!*token)
 		return (NULL);
-	*token = ft_flags_flow(*token, converted);
 	return (*token);
 }

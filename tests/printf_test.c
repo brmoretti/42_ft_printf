@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:49:34 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 17:52:19 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:02:27 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	printf("%0 8d\n", 10);
 	printf("%123%\n");
 	printf("%daa\n", 123);
-	printf("%-2.5daa\n", 123);
+	printf("%-10.5daa\n", 123);
 	printf("%00daa\n", 123);
 	printf("%.s\n", "ab");
 	printf("%-10xaaa\n", 5000000);

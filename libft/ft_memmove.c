@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 12:08:19 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:41:28 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*prefix;
-	char		*address_no;
+	unsigned char	*from;
+	unsigned char	*to;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
-		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	from = (unsigned char *)src;
+	to = (unsigned char *)dest;
+	if (to < from)
 	{
-		free (prefix);
-		return (NULL);
+		while (n-- > 0)
+			*to++ = *from++;
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	else if (to > from)
+	{
+		while (n-- > 0)
+			to[n] = from[n];
+	}
+	return (dest);
 }

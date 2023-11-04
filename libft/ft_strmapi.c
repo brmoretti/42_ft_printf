@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/10 14:25:57 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:43:41 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char		*prefix;
-	char		*address_no;
+	char			*str;
+	unsigned int	i;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
+	if (!s || !f)
 		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	str = malloc(ft_strlen(s) + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		free (prefix);
-		return (NULL);
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	str[i] = '\0';
+	return (str);
 }

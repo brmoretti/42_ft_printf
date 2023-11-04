@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:49:19 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:08:46 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 19:25:36 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stddef.h>
 
-char	*ft_parse_ptr(char **token, unsigned long ptr)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char		*prefix;
-	char		*address_no;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	free (*token);
-	prefix = ft_strdup("0x");
-	if (!prefix)
+	i = 0;
+	if (!*little)
+		return ((char *)big);
+	if (!big && !len)
 		return (NULL);
-	address_no = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address_no)
+	while (big[i] && i < len)
 	{
-		free (prefix);
-		return (NULL);
+		j = 0;
+		k = i;
+		while (big[k] == little[j] && k < len)
+		{
+			k++;
+			j++;
+			if (little[j] == '\0')
+				return ((char *)&big[i]);
+		}
+		i++;
 	}
-	*token = ft_strjoin(prefix, address_no);
-	free (prefix);
-	free (address_no);
-	return (*token);
+	return (NULL);
 }
