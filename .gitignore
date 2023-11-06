@@ -1,3 +1,5 @@
 *.pdf
 *.out
 *.gch
+*.json
+/printfTester

@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 14:54:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/05 17:06:40 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,5 @@ char	*ft_parse_int(char **token, int n);
 char	*ft_parse_ptr(char **token, unsigned long ptr);
 char	*ft_parse_string(char **token, char *str);
 char	*ft_parse_uint(char **token, unsigned int n, char conversion);
-
-char	*ft_flags_flow(char	*flags, char *token);
 
 #endif

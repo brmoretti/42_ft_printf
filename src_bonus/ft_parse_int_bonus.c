@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_parse_int_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 17:31:00 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/05 16:52:20 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdio.h>
-#include "libft.h"
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	main(void)
+char	*ft_parse_int(char **token, int n)
 {
-	char	c = 'a';
-	char	str[] = "test";
-	int		d = INT_MAX;
-	int		u = UINT_MAX;
-
-	ft_printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	return (0);
+	free(*token);
+	*token = ft_itoa_base_int(n, 10, 0);
+	if (!*token)
+		return (NULL);
+	return (*token);
 }
