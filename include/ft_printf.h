@@ -6,17 +6,29 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 17:06:40 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/06 23:20:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include <stdlib.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(const char *format, ...);
+
+int		ft_atoi(const char *nptr);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_putstr_fd(char *s, int fd);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+
+char	*ft_strrchr(const char *s, int c);
 
 char	*ft_itoa_base_int(int n, int base, int upper);
 char	*ft_itoa_base_uint(unsigned int n, int base, int upper);

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/06 23:22:48 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:43:09 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/06 22:45:54 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stdio.h>
 #include "ft_printf.h"
 
-int	main(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	c = 'a';
-	char	str[] = "test";
-	int		d = INT_MAX;
-	int		u = UINT_MAX;
-	int		n;
+	void	*ptr;
+	size_t	total;
 
-	ft_printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	printf("%i\n", n);
-	printf("%i\n", n);
-	return (0);
+	total = nmemb * size;
+	ptr = malloc(total);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, total);
+	return (ptr);
 }

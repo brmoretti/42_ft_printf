@@ -16,9 +16,11 @@ INCLUDES		=	-I./$(INC_DIR) -I./$(LIBFT_PATH)
 LINCLUDES		=	-L./$(LIBFT_PATH) -lft
 
 SRC_DIR 		=	src
-SRC_FILES		=	ft_clear_tab.c ft_itoa_base_int.c ft_itoa_base_ulong.c ft_parse_char.c \
-					ft_parse_ptr.c ft_parse_uint.c ft_split_printf.c ft_itoa_base_uint.c \
-					ft_last_char.c ft_parse_int.c ft_parse_string.c ft_printf.c
+SRC_FILES		=	\
+ft_atoi.c       ft_itoa_base_int.c    ft_parse_char.c    ft_parse_uint.c    ft_strchr.c		\
+ft_bzero.c      ft_itoa_base_uint.c   ft_parse_int.c     ft_printf.c        ft_strdup.c		\
+ft_calloc.c     ft_itoa_base_ulong.c  ft_parse_ptr.c     ft_putstr_fd.c     ft_strjoin.c	\
+ft_clear_tab.c  ft_last_char.c        ft_parse_string.c  ft_split_printf.c  ft_strlen.c
 SOURCES 		=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 SRC_DIR_BONUS	= src_bonus
@@ -48,12 +50,9 @@ all: $(NAME)
 bonus:
 	@ make M_BONUS=TRUE --no-print-directory
 
-$(NAME): $(LIBFT) $(BUILDS)
-	@ $(AR) $(AR_FLAGS) $(LIB) $^ -v
+$(NAME): $(BUILDS)
+	# @ $(AR) $(AR_FLAGS) $(LIB) $^ -v
 	@ echo "$(LIB) is ready"
-
-$(LIBFT):
-	make -C ./$(LIBFT_PATH) all --no-print-directory
 
 $(BUILD_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 	@ echo "$< -> $@"
@@ -62,6 +61,7 @@ $(BUILD_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@ echo "$< -> $@"
 	@ cc -c $< $(INCLUDES) -o $@ $(CC_FLAGS)
+	@ $(AR) $(AR_FLAGS) $(LIB) $@
 
 clean:
 	@ make -C ./$(LIBFT_PATH) clean --no-print-directory
@@ -76,7 +76,7 @@ fclean: clean
 re: fclean all
 
 test: $(BUILDS) $(LIBFT)
-	$(CC) test.c $(INCLUDES) $(LINCLUDES) $^ -o test.out
+	$(CC) test.c $(INCLUDES) $^ -o test.out
 
 test_bonus: $(BUILDS_BONUS) $(LIBFT)
 	$(CC) test.c $(INCLUDES) $(LINCLUDES) $^ -o test.out
