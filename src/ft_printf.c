@@ -6,13 +6,22 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/07 10:18:49 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:01:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_conversion_flow(char **tab, va_list args)
+static int	ft_free_putstr(char **s)
+{
+	int	len;
+
+	len = ft_putstr_len(*s);
+	free (*s);
+	return (len);
+}
+
+int	ft_conversion_flow(char **tab, va_list args, int *len)
 {
 	char	c;
 
@@ -22,41 +31,23 @@ int	ft_conversion_flow(char **tab, va_list args)
 		{
 			c = ft_last_char(*tab);
 			if (c == 'c')
-				ft_parse_char(tab, va_arg(args, int));
+				*len += ft_parse_char(tab, va_arg(args, int));
 			else if (c == 's')
-				ft_parse_string(tab, va_arg(args, char *));
+				*len += ft_parse_string(tab, va_arg(args, char *));
 			else if (c == 'p')
-				ft_parse_ptr(tab, va_arg(args, unsigned long));
+				*len += ft_parse_ptr(tab, va_arg(args, unsigned long));
 			else if (c == 'd' || c == 'i')
-				ft_parse_int(tab, va_arg(args, int));
+				*len += ft_parse_int(tab, va_arg(args, int));
 			else if (c == 'u' || c == 'x' || c == 'X')
-				ft_parse_uint(tab, va_arg(args, unsigned int), c);
+				*len += ft_parse_uint(tab, va_arg(args, unsigned int), c);
 			else if (c == '%')
-				ft_parse_char(tab, '%');
-			if (!*tab)
-				return (0);
+				*len += ft_parse_char(tab, '%');
 		}
+		else
+			*len += ft_free_putstr(tab);
 		tab++;
 	}
 	return (1);
-}
-
-int	ft_print_tab(char **tab)
-{
-	int	len;
-	int strlen;
-
-	len = 0;
-	while (*tab)
-	{
-		strlen = ft_strlen((const char *)*tab);
-		if (strlen == 0)
-			strlen++;
-		len += strlen;
-		ft_putstr_fd(*tab, 1);
-		tab++;
-	}
-	return (len);
 }
 
 int	ft_printf(const char *format, ...)
@@ -65,14 +56,14 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		len;
 
+	len = 0;
 	va_start(args, format);
 	tab = ft_split_printf(format);
 	if (!tab)
-		return (0);
-	len = -1;
-	if (ft_conversion_flow(tab, args))
-		len = ft_print_tab(tab);
-	ft_clear_tab(tab);
+		return (-1);
+	len = 0;
+	ft_conversion_flow(tab, args, &len);
+	free (tab);
 	va_end(args);
 	return (len);
 }

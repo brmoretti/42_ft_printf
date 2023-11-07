@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:45:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/01 11:42:52 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:45:29 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static size_t	ft_define_size(unsigned int n, int base)
 	size_t	s;
 
 	s = 1;
+	if (n == 0)
+		s++;
 	while (n != 0)
 	{
 		n /= base;
