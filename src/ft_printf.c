@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/06 18:57:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:18:49 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,15 @@ int	ft_conversion_flow(char **tab, va_list args)
 int	ft_print_tab(char **tab)
 {
 	int	len;
+	int strlen;
 
 	len = 0;
 	while (*tab)
 	{
-		len += ft_strlen((const char *)*tab);
+		strlen = ft_strlen((const char *)*tab);
+		if (strlen == 0)
+			strlen++;
+		len += strlen;
 		ft_putstr_fd(*tab, 1);
 		tab++;
 	}

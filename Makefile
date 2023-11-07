@@ -75,7 +75,7 @@ fclean: clean
 
 re: fclean all
 
-test: $(BUILDS) $(LIBFT)
+test: $(BUILDS)
 	$(CC) test.c $(INCLUDES) $^ -o test.out
 
 test_bonus: $(BUILDS_BONUS) $(LIBFT)
