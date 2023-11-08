@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_printf_bonus.c                            :+:      :+:    :+:   */
+/*   ft_split_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:11:41 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 16:39:18 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:58:08 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static unsigned int	ft_count_tokens(const char *s)
 	return (count);
 }
 
-static char	*ft_split_malloc(char *start)
+static char	*ft_split_malloc(const char *start)
 {
 	unsigned int	i;
 	char			*mem;
@@ -83,7 +83,7 @@ static char	*ft_split_malloc(char *start)
 	return (mem);
 }
 
-static char	*ft_copy_split_printf(char *dest, char *src)
+static char	*ft_copy_split_printf(char *dest, const char *src)
 {
 	if (src && *src == '%')
 	{
@@ -99,7 +99,7 @@ static char	*ft_copy_split_printf(char *dest, char *src)
 			*(dest++) = *(src++);
 	}
 	*dest = '\0';
-	return (src);
+	return ((char *)src);
 }
 
 char	**ft_split_printf(const char *s)

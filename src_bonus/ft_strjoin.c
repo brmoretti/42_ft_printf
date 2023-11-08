@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_int_bonus.c                               :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 16:52:20 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/09 08:20:17 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/06 22:46:27 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-char	*ft_parse_int(char **token, int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	free(*token);
-	*token = ft_itoa_base_int(n, 10, 0);
-	if (!*token)
+	size_t	len;
+	char	*joined;
+	char	*origin;
+
+	if (!s1 || !s2)
 		return (NULL);
-	return (*token);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	joined = malloc(len + 1);
+	if (joined == NULL)
+		return (NULL);
+	origin = joined;
+	while (*s1)
+		*(joined++) = *(s1++);
+	while (*s2)
+		*(joined++) = *(s2++);
+	*joined = '\0';
+	return (origin);
 }

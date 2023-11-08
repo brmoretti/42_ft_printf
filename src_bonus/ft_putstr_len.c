@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_tab_bonus.c                               :+:      :+:    :+:   */
+/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 16:03:50 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 22:19:56 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/08 14:40:38 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-char	**ft_clear_tab(char **tab)
+int	ft_putstr_len(const char *s)
 {
-	char	**ptr;
+	unsigned int	i;
 
-	ptr = tab;
-	while (*ptr)
-		free (*ptr++);
-	free (tab);
-	return (NULL);
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	write(1, s, i);
+	return (i);
 }

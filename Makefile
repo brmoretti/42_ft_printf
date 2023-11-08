@@ -7,28 +7,35 @@ CC_FLAGS	=	-Wall -Werror -Wextra
 AR				=	ar
 AR_FLAGS		=	rcs
 
-LIBFT_PATH		=	libft
-LIBFT			=	$(LIBFT_PATH)/libft.a
-
 INC_DIR			=	include
-INC_FILES		=	ft_printf.h
-INCLUDES		=	-I./$(INC_DIR) -I./$(LIBFT_PATH)
-LINCLUDES		=	-L./$(LIBFT_PATH) -lft
+INCLUDES		=	-I./$(INC_DIR)
 
 SRC_DIR 		=	src
-SRC_FILES		=	\
-ft_atoi.c       ft_itoa_base_int.c    ft_parse_char.c    ft_parse_uint.c    ft_strchr.c		\
-ft_bzero.c      ft_itoa_base_uint.c   ft_parse_int.c     ft_printf.c        ft_strdup.c		\
-ft_calloc.c     ft_itoa_base_ulong.c  ft_parse_ptr.c     ft_putstr_len.c     ft_strjoin.c	\
-ft_clear_tab.c  ft_last_char.c        ft_parse_string.c  ft_split_printf.c  ft_strlen.c
+SRC_FILES		=	ft_atoi.c				\
+					ft_bzero.c				\
+					ft_calloc.c				\
+					ft_clear_tab.c			\
+					ft_itoa_base_int.c		\
+					ft_itoa_base_uint.c		\
+					ft_itoa_base_ulong.c	\
+					ft_last_char.c			\
+					ft_parse_char.c			\
+					ft_parse_int.c			\
+					ft_parse_ptr.c			\
+					ft_parse_string.c		\
+					ft_parse_uint.c			\
+					ft_printf.c				\
+					ft_putstr_len.c			\
+					ft_split_printf.c		\
+					ft_strchr.c				\
+					ft_strdup.c				\
+					ft_strjoin.c			\
+					ft_strlen.c
 SOURCES 		=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 SRC_DIR_BONUS	= src_bonus
-SRC_FILES_BONUS	=	ft_clear_tab_bonus.c ft_itoa_base_uint_bonus.c ft_parse_ptr_bonus.c \
-ft_conversion_hex.c ft_itoa_base_ulong_bonus.c ft_parse_string_bonus.c \
-ft_flags_flow_bonus.c ft_last_char_bonus.c ft_parse_uint_bonus.c \
-ft_get_flags_bonus.c ft_parse_char_bonus.c ft_printf_bonus.c \
-ft_itoa_base_int_bonus.c ft_parse_int_bonus.c ft_split_printf_bonus.c
+SRC_FILES_BONUS	=	ft_atoi.c   ft_calloc.c     ft_itoa_base_int.c   ft_itoa_base_ulong.c  ft_parse_char.c  ft_parse_ptr.c     ft_parse_uint.c  ft_putstr_len.c    ft_strchr.c  ft_strjoin.c \
+ft_bzero.c  ft_clear_tab.c  ft_itoa_base_uint.c  ft_last_char.c        ft_parse_int.c   ft_parse_string.c  ft_printf.c      ft_split_printf.c  ft_strdup.c  ft_strlen.c
 
 SOURCES_BONUS 	=	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
@@ -37,7 +44,7 @@ BUILD_DIR_BONUS = build_bonus
 OBJS		=	$(SRC_FILES:.c=.o)
 OBJS_BONUS	=	$(SRC_FILES_BONUS:.c=.o)
 BUILDS		=	$(addprefix $(BUILD_DIR)/, $(OBJS))
-BUILDS_BONUS	=	$(addprefix $(BUILD_DIR_BONUS)/, $(OBJS_BONUS))
+BUILDS_BONUS	=	$(addprefix $(BUILD_DIR)/, $(OBJS_BONUS))
 
 ifdef	M_BONUS
 		$(OBJS) = $(OBJS_BONUS)
@@ -51,31 +58,33 @@ all: $(NAME)
 #	@ make M_BONUS=TRUE --no-print-directory
 
 $(NAME): $(BUILDS)
-	# @ $(AR) $(AR_FLAGS) $(LIB) $^ -v
 	@ echo "$(LIB) is ready"
 
-$(BUILD_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
-	@ echo "$< -> $@"
-	@ cc -c $< $(INCLUDES) $(LINCLUDES) -o $@ $(CC_FLAGS)
+bonus: $(BUILDS_BONUS)
+	@ echo "g flag is on"
+	@ echo "$(LIB) is ready"
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@ echo "$< -> $@"
-	@ cc -c $< $(INCLUDES) -o $@ $(CC_FLAGS) -g
+	@ cc -c $< $(INCLUDES) -o $@ $(CC_FLAGS)
+	@ $(AR) $(AR_FLAGS) $(LIB) $@
+
+$(BUILD_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
+	@ echo "$< -> $@"
+	@ cc -c $< $(INCLUDES) $(LINCLUDES) -o $@ $(CC_FLAGS) -g
 	@ $(AR) $(AR_FLAGS) $(LIB) $@
 
 clean:
-	@ make -C ./$(LIBFT_PATH) clean --no-print-directory
 	@ rm -f $(BUILD_DIR)/*.*
 	@ echo ".o files cleaned"
 
 fclean: clean
-	@ make -C $(LIBFT_PATH) fclean --no-print-directory
 	@ rm -f $(LIB)
 	@ echo "$(LIB) is cleaned"
 
 re: fclean all
 
-test: $(BUILDS)
+test: $(BUILDS_BONUS)
 	$(CC) test.c $(INCLUDES) $^ -o test.out -g
 
 test_bonus: $(BUILDS_BONUS) $(LIBFT)

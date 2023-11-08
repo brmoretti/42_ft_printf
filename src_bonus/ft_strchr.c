@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 14:40:38 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 18:35:18 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:42:51 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stddef.h>
 
-int	ft_putstr_len(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
-	return (i);
+	while (*s)
+		if (*s++ == (unsigned char)c)
+			return ((char *)--s);
+	if ((unsigned char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

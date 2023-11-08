@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 14:40:38 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:43:09 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/06 22:45:54 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putstr_len(const char *s)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned int	i;
+	void	*ptr;
+	size_t	total;
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
-	return (i);
+	total = nmemb * size;
+	ptr = malloc(total);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, total);
+	return (ptr);
 }

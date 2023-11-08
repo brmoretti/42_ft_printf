@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:45:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 12:11:35 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 14:41:21 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,3 @@ char	*ft_itoa_base_uint(unsigned int n, int base, int upper)
 	}
 	return (a);
 }
-

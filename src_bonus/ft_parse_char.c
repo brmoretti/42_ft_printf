@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_string_bonus.c                            :+:      :+:    :+:   */
+/*   ft_parse_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:50:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 16:39:08 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 13:33:13 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/08 11:07:56 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_parse_string(char **token, char *str)
+int	ft_parse_char(char **token, int c)
 {
-	int	i;
-
 	free (*token);
-	*token = malloc((ft_strlen((const char *)str) + 1) * sizeof(char));
-	if (!*token)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		(*token)[i] = str[i];
-		i++;
-	}
-	(*token)[i] = '\0';
-	return (*token);
+	write(1, &c, 1);
+	return (1);
 }

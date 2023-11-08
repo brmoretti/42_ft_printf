@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
+/*   ft_parse_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 14:40:38 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/07 18:59:40 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
-int	ft_putstr_len(const char *s)
+int	ft_parse_int(char **token, int n)
 {
-	unsigned int	i;
+	char	*s;
+	size_t	len;
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
-	return (i);
+	free(*token);
+	s = ft_itoa_base_int(n, 10, 0);
+	if (!*s)
+		return (-1);
+	len = ft_putstr_len(s);
+	free (s);
+	return (len);
 }

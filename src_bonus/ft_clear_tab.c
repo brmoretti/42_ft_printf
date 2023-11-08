@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_uint_bonus.c                              :+:      :+:    :+:   */
+/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 21:55:54 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/01 16:03:50 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/04 13:24:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include <stdlib.h>
 
-char	*ft_parse_uint(char **token, unsigned int n, char conversion)
+char	**ft_clear_tab(char **tab)
 {
-	t_flags	*flags;
+	char	**ptr;
 
-	flags = ft_get_flags(*token);
-	free (*token);
-	if (!flags)
-		return (NULL);
-	if (conversion == 'u')
-		*token = ft_itoa_base_uint(n, 10, 0);
-	else if (conversion == 'x')
-		*token = ft_conversion_hex(n, conversion, flags);
-	free (flags);
-	if (!*token)
-		return (NULL);
-	return (*token);
+	ptr = tab;
+	while (*ptr)
+		free (*ptr++);
+	free (tab);
+	return (NULL);
 }

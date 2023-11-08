@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_len.c                                    :+:      :+:    :+:   */
+/*   ft_last_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 14:40:38 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/11/02 03:16:02 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/08 11:17:49 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_putstr_len(const char *s)
+char	ft_last_char(const char *str)
 {
-	unsigned int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
-	return (i);
+	while (*str && *(str + 1))
+		str++;
+	return (*str);
 }

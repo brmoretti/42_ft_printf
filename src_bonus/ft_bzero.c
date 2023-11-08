@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_last_char_bonus.c                               :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 03:16:02 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 16:38:55 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:46:36 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 18:00:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_last_char(char *str)
+#include <stddef.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	while (*str && *(str + 1))
-		str++;
-	return (*str);
+	char	*ptr;
+
+	if (!n)
+		return ;
+	ptr = (char *)s;
+	while (n-- != 0)
+		*(ptr++) = '\0';
 }

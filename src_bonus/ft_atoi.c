@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_char_bonus.c                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:33:13 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/05 16:38:58 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/08 20:24:51 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:37:43 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-char	*ft_parse_char(char **token, int c)
+int	ft_atoi(const char *nptr)
 {
-	free (*token);
-	*token = malloc(2 * sizeof(char));
-	if (!*token)
-		return (NULL);
-	(*token)[0] = (char)c;
-	(*token)[1] = '\0';
-	return (*token);
+	int	sign;
+	int	nb;
+
+	sign = 1;
+	nb = 0;
+	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
+		|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r')
+		nptr++;
+	if (*nptr == '-')
+		sign = -1;
+	if (*nptr == '-' || *nptr == '+')
+		nptr++;
+	while (*nptr && '0' <= *nptr && *nptr <= '9')
+		nb = nb * 10 + (*(nptr++) - '0');
+	return (sign * nb);
 }
