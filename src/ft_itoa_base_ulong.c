@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:45:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/07 15:47:09 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:12:18 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ char	*ft_itoa_base_ulong(unsigned long n, int base, int upper)
 	if (base < 2 || base > 36)
 		return (NULL);
 	size = ft_define_size(n, base);
-	a = malloc(size);
+	a = ft_calloc(size, sizeof(char));
 	if (a == NULL)
 		return (NULL);
-	a[--size] = '\0';
+	size--;
 	while (size--)
 	{
 		a[size] = ft_digit_representation(n % base, upper);
@@ -54,39 +54,3 @@ char	*ft_itoa_base_ulong(unsigned long n, int base, int upper)
 	}
 	return (a);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-
-// int	main(void)
-// {
-// 	unsigned int		n;
-// 	int					base;
-// 	char				*str;
-// 	int					upper;
-// 	int					i;
-
-// 	base = 16;
-// 	upper = 1;
-// 	n = UINT_MAX;
-// 	str = ft_itoa_base_unsigned_int(n, base, upper);
-// 	printf("%u base %d: %s\n", n, base, str);
-// 	free (str);
-// 	n = 0;
-// 	str = ft_itoa_base_unsigned_int(n, base, upper);
-// 	printf("%u base %d: %s\n", n, base, str);
-// 	free (str);
-// 	n = INT_MAX;
-// 	str = ft_itoa_base_unsigned_int(n, base, upper);
-// 	printf("%u base %d: %s\n", n, base, str);
-// 	free (str);
-// 	i = 0;
-// 	while (i <= 36)
-// 	{
-// 		n = i++;
-// 		str = ft_itoa_base_unsigned_int(n, base, upper);
-// 		printf("%u base %d: %s\n", n, base, str);
-// 		free (str);
-// 	}
-// 	return (0);
-// }

@@ -6,11 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 03:16:02 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/02 03:26:46 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:17:49 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_last_char(char *str)
+char	ft_last_char(const char *str)
 {
 	while (*str && *(str + 1))
 		str++;
