@@ -6,11 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/07 18:59:40 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:50:12 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 int	ft_parse_int(char **token, int n)
 {

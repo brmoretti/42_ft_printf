@@ -1,6 +1,7 @@
 {
 	"cmake.configureOnOpen": false,
 	"files.associations": {
-		"charconv": "c"
+		"charconv": "c",
+		"ft_printf_bonus.h": "c"
 	}
 }

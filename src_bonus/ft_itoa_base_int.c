@@ -6,11 +6,11 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:45:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 12:09:44 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 16:02:53 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 static size_t	ft_define_size(int n, int base)
 {

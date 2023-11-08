@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 12:16:32 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/08 19:27:19 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,32 @@ void	test_u_1_25_29()
 	printf("\nft: %d - original: %d\n", ft, original);
 }
 
+void ft_test_hash(void)
+{
+	int	ft = 0;
+	int	original = 0;
+
+	ft = ft_printf("%#x", 0);
+	puts("");
+	original = printf("%#x", 0);
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("%#x", -1);
+	puts("");
+	original = printf("%#x", -1);
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("%#x", INT_MAX);
+	puts("");
+	original = printf("%#x", INT_MAX);
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	puts("");
+	original = printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\nft: %d - original: %d\n", ft, original);
+}
+
 void	mix()
 {
 	int	ft = 0;
@@ -96,20 +122,12 @@ void	mix()
 
 int	main(void)
 {
-	char	c = 'a';
-	char	str[] = "test";
-	int		d = INT_MAX;
-	int		u = UINT_MAX;
-	int		n;
+	// test_c_5_8_9();
+	// test_s_10();
+	// test_p_9();
+	// test_u_1_25_29();
+	// mix();
+	ft_test_hash();
 
-	ft_printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	printf("c: %c\ns: %s\np: %p\nd: %d\ni: %i\nu: %u\nx: %x\nX: %X\n%%\n", c, str, str, 0x11, 0x11, u, u, u);
-	test_c_5_8_9();
-	test_s_10();
-	test_p_9();
-	test_u_1_25_29();
-	mix();
-	printf("%d\n", ft_printf(0));
-	printf("%d\n", printf(0));
 	return (0);
 }

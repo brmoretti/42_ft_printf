@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_string.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:50:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 15:50:30 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 09:21:06 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/10/17 15:46:21 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
-
-int	ft_parse_string(char **token, char *str)
+int	ft_isdigit(int c)
 {
-	free (*token);
-	if (!str)
-		return (ft_putstr_len("(null)"));
-	return (ft_putstr_len(str));
+	if ('0' <= c && c <= '9')
+		return (2048);
+	return (0);
 }
