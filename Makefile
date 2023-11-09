@@ -35,7 +35,7 @@ SOURCES 		=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 SRC_DIR_BONUS	= src_bonus
 SRC_FILES_BONUS	= \
-ft_atoi.c    ft_clear_tab.c   ft_itoa_base_int.c    ft_last_char.c   ft_parse_ptr.c     ft_printf.c        ft_strchr.c   ft_strlen.c \
+ft_atoi.c    ft_clear_tab.c   ft_dash_flag.c ft_itoa_base_int.c    ft_last_char.c   ft_parse_ptr.c     ft_printf.c        ft_strchr.c   ft_strlen.c \
 ft_bzero.c   ft_get_tokens.c  ft_itoa_base_uint.c   ft_parse_char.c  ft_parse_string.c  ft_putstr_len.c    ft_strdup.c \
 ft_calloc.c  ft_isdigit.c     ft_itoa_base_ulong.c  ft_parse_int.c   ft_parse_uint.c    ft_split_printf.c  ft_strjoin.c
 SOURCES_BONUS 	=	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
@@ -58,8 +58,10 @@ all: $(NAME)
 # bonus:
 #	@ make M_BONUS=TRUE --no-print-directory
 
-$(NAME): $(BUILDS)
-	@ echo "$(LIB) is ready"
+# $(NAME): $(BUILDS)
+# 	@ echo "$(LIB) is ready"
+
+$(NAME): bonus
 
 bonus: $(BUILDS_BONUS)
 	@ echo "g flag is on"
@@ -77,6 +79,7 @@ $(BUILD_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 
 clean:
 	@ rm -f $(BUILD_DIR)/*.*
+	@ rm -f $(BUILD_DIR_BONUS)/*.*
 	@ echo ".o files cleaned"
 
 fclean: clean
@@ -88,11 +91,8 @@ re: fclean all
 test: $(BUILDS_BONUS)
 	$(CC) test.c $(INCLUDES) $^ -o test.out -g
 
-test_bonus: $(BUILDS_BONUS) $(LIBFT)
-	$(CC) test.c $(INCLUDES) $(LINCLUDES) $^ -o test.out
-
-test2: $(BUILDS) $(INCLUDES) $(LIBFT)
-	$(CC) test2.c -I./$(INC_DIR) $(LIBFT) $(INCLUDES) $^ -o test2.out
+test2: $(BUILDS_BONUS)
+	$(CC) test2.c $(INCLUDES) $^ -o test.out -g
 
 test_f:
 	$(CC) src_bonus/ft_get_flags_bonus.c -I./$(INC_DIR) $(LIBFT) $(INCLUDES) $^ -o test3.out -g

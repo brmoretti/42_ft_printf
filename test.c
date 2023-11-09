@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 19:27:19 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:48:46 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,24 +88,65 @@ void ft_test_hash(void)
 	int	ft = 0;
 	int	original = 0;
 
-	ft = ft_printf("%#x", 0);
+	// ft = ft_printf("%#x", 0);
+	// puts("");
+	// original = printf("%#x", 0);
+	// printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("%#x", -10);
+	// puts("");
+	// original = printf("%#x", -10);
+	// printf("\nft: %d - original: %d\n", ft, original);
+
+	// ft = ft_printf("%#x", INT_MAX);
+	// puts("");
+	// original = printf("%#x", INT_MAX);
+	// printf("\nft: %d - original: %d\n", ft, original);
+
+	// ft = ft_printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	// puts("");
+	// original = printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	// printf("\nft: %d - original: %d\n", ft, original);
+}
+
+void ft_test_dash(void)
+{
+	int	ft = 0;
+	int	original = 0;
+
+	ft = ft_printf("$%-10c$", 'a');
 	puts("");
-	original = printf("%#x", 0);
+	original = printf("$%-10c$", 'a');
 	printf("\nft: %d - original: %d\n", ft, original);
 
-	ft = ft_printf("%#x", -1);
+	ft = ft_printf("$%-10s$", "abc");
 	puts("");
-	original = printf("%#x", -1);
+	original = printf("$%-10p$", NULL);
 	printf("\nft: %d - original: %d\n", ft, original);
 
-	ft = ft_printf("%#x", INT_MAX);
+	ft = ft_printf("$%-10i$", 42);
 	puts("");
-	original = printf("%#x", INT_MAX);
+	original = printf("$%-10c$", 'a');
 	printf("\nft: %d - original: %d\n", ft, original);
 
-	ft = ft_printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft = ft_printf("$%-10u$", 40);
 	puts("");
-	original = printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	original = printf("$%-10c$", 'a');
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("$%#-10x$", 42);
+	puts("");
+	original = printf("$%-10c$", 'a');
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("$%-10c$", 'a');
+	puts("");
+	original = printf("$%-10c$", 'a');
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("$%-10c$", 'a');
+	puts("");
+	original = printf("$%-10c$", 'a');
 	printf("\nft: %d - original: %d\n", ft, original);
 }
 
@@ -127,6 +168,7 @@ int	main(void)
 	// test_p_9();
 	// test_u_1_25_29();
 	// mix();
+	//ft_test_dash();
 	ft_test_hash();
 
 	return (0);

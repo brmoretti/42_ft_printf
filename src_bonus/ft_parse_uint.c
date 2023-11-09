@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:27 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/09 10:59:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_parse_uint(char **token, unsigned int n, char conversion)
 	if (!*s)
 		return (-1);
 	len += ft_putstr_len(s);
+	len += ft_dash_flag(len, flags->dash);
 	free (s);
 	free (flags);
 	return (len);
