@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:18:54 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/09 10:54:13 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:21:46 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	printf("$%-10c$\n", 'a');
+	printf("$%.3s$\n", "a");
 	printf("$%-10.20d$\n", 424242);
 	printf("$%-10p$\n", NULL);
 	printf("$%-10s$\n", "abc");

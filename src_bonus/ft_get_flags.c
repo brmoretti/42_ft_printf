@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_tokens.c                                    :+:      :+:    :+:   */
+/*   ft_get_flags.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:11:30 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 18:55:58 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:06:34 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_flags	*ft_get_flags(const char *s)
 {
 	t_flags	*flags;
 
-	flags = malloc(sizeof(flags));
+	flags = malloc(sizeof(t_flags));
 	if (!flags)
 		return (NULL);
 	flags->dash = ft_get_flag_attribute(s, '-', 1);

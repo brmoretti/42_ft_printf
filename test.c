@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/09 11:48:46 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:08:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,25 +88,25 @@ void ft_test_hash(void)
 	int	ft = 0;
 	int	original = 0;
 
-	// ft = ft_printf("%#x", 0);
-	// puts("");
-	// original = printf("%#x", 0);
-	// printf("\nft: %d - original: %d\n", ft, original);
+	ft = ft_printf("%#x", 0);
+	puts("");
+	original = printf("%#x", 0);
+	printf("\nft: %d - original: %d\n", ft, original);
 
 	ft = ft_printf("%#x", -10);
-	// puts("");
-	// original = printf("%#x", -10);
-	// printf("\nft: %d - original: %d\n", ft, original);
+	puts("");
+	original = printf("%#x", -10);
+	printf("\nft: %d - original: %d\n", ft, original);
 
-	// ft = ft_printf("%#x", INT_MAX);
-	// puts("");
-	// original = printf("%#x", INT_MAX);
-	// printf("\nft: %d - original: %d\n", ft, original);
+	ft = ft_printf("%#x", INT_MAX);
+	puts("");
+	original = printf("%#x", INT_MAX);
+	printf("\nft: %d - original: %d\n", ft, original);
 
-	// ft = ft_printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	// puts("");
-	// original = printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	// printf("\nft: %d - original: %d\n", ft, original);
+	ft = ft_printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	puts("");
+	original = printf(" %#x %#x %#x %#x %#x %#x %#x", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("\nft: %d - original: %d\n", ft, original);
 }
 
 void ft_test_dash(void)
