@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:11:30 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 11:06:34 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:06:29 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,12 @@
 static int	ft_get_flag_attribute(const char *s, char flag, int atoi)
 {
 	char	*p;
-	char	*p_prev;
 
 	p = ft_strchr(s, flag);
 	if (!p)
 		return (-1);
 	if (!atoi)
 		return (1);
-	if (flag == '0')
-	{
-		p_prev = ft_strchr(s, '-');
-		if (p_prev && p_prev < p)
-			return (-1);
-		p_prev = ft_strchr(s, '.');
-		if (p_prev && p_prev < p)
-			return (-1);
-	}
 	return (ft_atoi(p + 1));
 }
 
@@ -42,11 +32,11 @@ t_flags	*ft_get_flags(const char *s)
 	if (!flags)
 		return (NULL);
 	flags->dash = ft_get_flag_attribute(s, '-', 1);
-	if (flags->dash != -1)
+	flags->dot = ft_get_flag_attribute(s, '.', 1);
+	if (flags->dash != -1 || flags->dot != -1)
 		flags->zero = -1;
 	else
 		flags->zero = ft_get_flag_attribute(s, '0', 1);
-	flags->dot = ft_get_flag_attribute(s, '.', 1);
 	flags->hash = ft_get_flag_attribute(s, '#', 0);
 	flags->space = ft_get_flag_attribute(s, ' ', 0);
 	flags->plus = ft_get_flag_attribute(s, '+', 1);

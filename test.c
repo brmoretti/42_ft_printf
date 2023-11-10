@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 11:08:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:37:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,17 @@ void ft_test_dash(void)
 	printf("\nft: %d - original: %d\n", ft, original);
 }
 
+void	ft_test_zero(void)
+{
+	int	ft = 0;
+	int	original = 0;
+
+	ft = ft_printf("$%010d$", -10);
+	puts("");
+	original = printf("$%010d$", -10);
+	printf("\nft: %d - original: %d\n", ft, original);
+}
+
 void	mix()
 {
 	int	ft = 0;
@@ -169,7 +180,8 @@ int	main(void)
 	// test_u_1_25_29();
 	// mix();
 	//ft_test_dash();
-	ft_test_hash();
+	//ft_test_hash();
+	ft_test_zero();
 
 	return (0);
 }

@@ -37,7 +37,8 @@ SRC_DIR_BONUS	= src_bonus
 SRC_FILES_BONUS	= \
 ft_atoi.c    ft_clear_tab.c   ft_dash_flag.c ft_itoa_base_int.c    ft_last_char.c   ft_parse_ptr.c     ft_printf.c        ft_strchr.c   ft_strlen.c \
 ft_bzero.c   ft_get_flags.c  ft_itoa_base_uint.c   ft_parse_char.c  ft_parse_string.c  ft_putstr_len.c    ft_strdup.c \
-ft_calloc.c  ft_isdigit.c     ft_itoa_base_ulong.c  ft_parse_int.c   ft_parse_uint.c    ft_split_printf.c  ft_strjoin.c
+ft_calloc.c  ft_isdigit.c     ft_itoa_base_ulong.c  ft_parse_int.c   ft_parse_uint.c    ft_split_printf.c  ft_strjoin.c    ft_zero_flag_int.c \
+ft_zero_flag_uint.c
 SOURCES_BONUS 	=	$(addprefix $(SRC_DIR_BONUS)/, $(SRC_FILES_BONUS))
 
 BUILD_DIR 	=	build
