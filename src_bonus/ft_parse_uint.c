@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 16:23:54 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:36:06 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int	ft_parse_uint(char **token, unsigned int n, char conversion)
 	if (!flags)
 		return (-1);
 	len = ft_hash_flag(n, conversion, flags);
-	len += ft_zero_flag_uint(conversion, n, len, flags->zero);
+	if (flags->zero != -1)
+		len += ft_zero_flag_uint(conversion, n, len, flags->zero);
+	else
+		len += ft_precision_uint(conversion, n, flags->dot);
 	len += ft_dash_flag(len, flags->dash);
 	free (flags);
 	return (len);

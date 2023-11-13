@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:22:32 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 16:37:15 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/12 20:51:18 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,33 @@ void	ft_test_zero(void)
 	printf("\nft: %d - original: %d\n", ft, original);
 }
 
+void	ft_test_plus(void)
+{
+	int	ft = 0;
+	int	original = 0;
+
+	ft = ft_printf("$%+d$", 0);
+	puts("");
+	original = printf("$%+d$", 0);
+	printf("\nft: %d - original: %d\n", ft, original);
+
+	ft = ft_printf("$%+d$", 9);
+	puts("");
+	original = printf("$%+d$", 9);
+	printf("\nft: %d - original: %d\n", ft, original);
+}
+
+void	ft_test_string(void)
+{
+	int	ft = 0;
+	int	original = 0;
+
+	ft = ft_printf("$%1s$", "");
+	puts("");
+	original = printf("$%1s$", "");
+	printf("\nft: %d - original: %d\n", ft, original);
+}
+
 void	mix()
 {
 	int	ft = 0;
@@ -181,7 +208,9 @@ int	main(void)
 	// mix();
 	//ft_test_dash();
 	//ft_test_hash();
-	ft_test_zero();
+	//ft_test_zero();
+	//ft_test_plus();
+	ft_test_string();
 
 	return (0);
 }

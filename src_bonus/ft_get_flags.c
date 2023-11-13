@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:11:30 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 15:06:29 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 23:26:08 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ t_flags	*ft_get_flags(const char *s)
 	else
 		flags->zero = ft_get_flag_attribute(s, '0', 1);
 	flags->hash = ft_get_flag_attribute(s, '#', 0);
-	flags->space = ft_get_flag_attribute(s, ' ', 0);
-	flags->plus = ft_get_flag_attribute(s, '+', 1);
+	flags->plus = ft_get_flag_attribute(s, '+', 0);
+	if (flags->plus != -1)
+		flags->space = -1;
+	else
+		flags->space = ft_get_flag_attribute(s, ' ', 0);
 	return (flags);
 }
 // #include <stdio.h>

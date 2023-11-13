@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 16:13:07 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 23:55:56 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ t_flags	*ft_get_flags(const char *s);
 int		ft_dash_flag(int prev_len, int target_len);
 int		ft_zero_flag_int(unsigned int n, int zeros);
 int		ft_zero_flag_uint(char conversion, unsigned int n, int len, int zeros);
+int		ft_precision_int(int n, int precision);
+int		ft_precision_uint(char conversion, unsigned int n, int precision);
+int		ft_putstr_len_limit(const char *s, int limit);
 
 #endif

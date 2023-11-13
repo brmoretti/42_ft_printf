@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:18:20 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 17:19:21 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:58:24 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ static	int ft_sign(int zeros, const char *number)
 	return (len + ft_putstr_len(number));
 }
 
-int	ft_zero_flag_int(unsigned int n, int zeros)
+int	ft_precision_int(int n, int precision)
 {
 	char	*s;
-	int		i;
 	int		len;
 
 	s = ft_itoa_base_int(n, 10, 0);
 	if (!s)
 		return (-1);
 	len = (int)ft_strlen(s);
-	i = zeros - len;
-	if (zeros == -1 || i <= 0)
+	if (*s == '-')
+		len--;
+	if (precision == -1 || len >= precision)
 		len = ft_putstr_len(s);
 	else
-		len = ft_sign(i, s);
+		len = ft_sign(precision - len, s);
 	free (s);
 	return (len);
 }

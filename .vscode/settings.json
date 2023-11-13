@@ -3,5 +3,6 @@
 	"files.associations": {
 		"charconv": "c",
 		"ft_printf_bonus.h": "c"
-	}
+	},
+	"C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
