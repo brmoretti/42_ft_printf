@@ -60,8 +60,8 @@ To use ft_printf in your C project, follow these steps:
 
 The project is organized as follows:
 
-- libftprintf.a: The compiled library containing the ft_printf implementation.
-- src/: Contains the source code for the ft_printf function.
-- includes/: Contains the header file (ft_printf.h) for including in your projects.
-- Makefile: Makefile for compiling the project.
+- <b>libftprintf.a:</b> The compiled library containing the ft_printf implementation.
+- <b>src/:</b> Contains the source code for the ft_printf function.
+- <b>include/:</b> Contains the header file (ft_printf.h) for including in your projects.
+- <b>Makefile:</b> Makefile for compiling the project.
 Feel free to explore the source code and customize it according to your needs.
