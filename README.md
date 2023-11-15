@@ -1,4 +1,4 @@
-# 42_ft_printf
+# 42_ft_printf with Bonus
 <p align="center">
   <img src="https://game.42sp.org.br/static/assets/achievements/ft_printfm.png" alt="Achievement Image"><br>
 </p>
