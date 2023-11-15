@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 20:24:51 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/17 15:37:43 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:43:38 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_atoi(const char *nptr)
 
 	sign = 1;
 	nb = 0;
-	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
-		|| *nptr == '\v' || *nptr == '\f' || *nptr == '\r')
+	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n' || *nptr == '\v'
+		|| *nptr == '\f' || *nptr == '\r')
 		nptr++;
 	if (*nptr == '-')
 		sign = -1;

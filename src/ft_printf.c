@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 11:55:57 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:46:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_free_putstr(char **s)
 	int	len;
 
 	len = ft_putstr_len(*s);
-	free (*s);
+	free(*s);
 	return (len);
 }
 
@@ -62,7 +62,7 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	len = 0;
 	ft_conversion_flow(tab, args, &len);
-	free (tab);
+	free(tab);
 	va_end(args);
 	return (len);
 }

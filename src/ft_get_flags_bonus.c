@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_flags.c                                     :+:      :+:    :+:   */
+/*   ft_get_flags_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:11:30 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 23:26:08 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:46:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
 static int	ft_get_flag_attribute(const char *s, char flag, int atoi)
 {
@@ -45,15 +45,3 @@ t_flags	*ft_get_flags(const char *s)
 		flags->space = ft_get_flag_attribute(s, ' ', 0);
 	return (flags);
 }
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	s[] = "#05 .02";
-// 	t_flags	*f;
-
-// 	f = ft_get_flags(s);
-// 	printf("-: %d\n0: %d\n.: %d\n#: %d\ns: %d\n+: %d\n", f->dash, f->zero, f->dot, f->hash, f->space, f->plus);
-// 	free (f);
-// 	return (0);
-// }

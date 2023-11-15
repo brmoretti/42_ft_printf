@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_len_limit.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 18:09:14 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/17 19:22:25 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/12 18:34:31 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/15 12:44:07 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-static size_t	ft_strnlen(const char *s, size_t maxlen)
+int	ft_putstr_len_limit(const char *s, int limit)
 {
-	size_t	i;
+	unsigned int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
+	if (limit >= 0)
+	{
+		while (s[i] && limit--)
+			i++;
+	}
+	else
+	{
+		while (s[i])
+			i++;
+	}
+	write(1, s, i);
 	return (i);
-}
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	len;
-
-	len = 0;
-	if (size)
-		len = ft_strnlen(dst, size);
-	if (len == size)
-		return (len + ft_strlen(src));
-	return (len + ft_strlcpy(dst + len, src, size - len));
 }

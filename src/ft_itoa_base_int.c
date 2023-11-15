@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:45:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/08 12:09:44 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:46:15 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static char	ft_digit_representation(int n, int upper)
 
 char	*ft_itoa_base_int(int n, int base, int upper)
 {
-	char		*a;
-	size_t		size;
+	char	*a;
+	size_t	size;
 
 	if (base < 2 || base > 36)
 		return (NULL);

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 19:25:59 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/10/17 15:41:05 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/10/06 09:21:06 by bmoretti          #+#    #+#             */
+/*   Updated: 2023/11/15 12:43:46 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_isdigit(int c)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-
-	ptr1 = (unsigned char *)s1;
-	ptr2 = (unsigned char *)s2;
-	while (n--)
-	{
-		if (*(ptr1++) != *(ptr2++))
-			return (*(ptr1 - 1) - *(ptr2 - 1));
-	}
+	if ('0' <= c && c <= '9')
+		return (2048);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:03:50 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/04 13:24:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:43:42 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**ft_clear_tab(char **tab)
 
 	ptr = tab;
 	while (*ptr)
-		free (*ptr++);
-	free (tab);
+		free(*ptr++);
+	free(tab);
 	return (NULL);
 }

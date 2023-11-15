@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_zero_flag_int.c                                 :+:      :+:    :+:   */
+/*   ft_zero_flag_int_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:03:16 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 16:51:22 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:46:16 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_bonus.h"
+#include "ft_printf.h"
 
-static	int ft_sign(int zeros, const char *number)
+static int	ft_sign(int zeros, const char *number)
 {
 	int	len;
 
@@ -26,7 +26,7 @@ static	int ft_sign(int zeros, const char *number)
 	}
 	len = zeros;
 	while (zeros--)
-		write (1, "0", 1);
+		write(1, "0", 1);
 	return (len + ft_putstr_len(number));
 }
 
@@ -45,6 +45,6 @@ int	ft_zero_flag_int(unsigned int n, int zeros)
 		len = ft_putstr_len(s);
 	else
 		len = ft_sign(i, s);
-	free (s);
+	free(s);
 	return (len);
 }

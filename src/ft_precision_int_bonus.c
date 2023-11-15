@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_precision_int.c                                 :+:      :+:    :+:   */
+/*   ft_precision_int_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:18:20 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/10 21:58:24 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/11/15 12:44:02 by bmoretti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int ft_sign(int zeros, const char *number)
+static int	ft_sign(int zeros, const char *number)
 {
 	int	len;
 
@@ -26,7 +26,7 @@ static	int ft_sign(int zeros, const char *number)
 	}
 	len = zeros;
 	while (zeros--)
-		write (1, "0", 1);
+		write(1, "0", 1);
 	return (len + ft_putstr_len(number));
 }
 
@@ -35,6 +35,8 @@ int	ft_precision_int(int n, int precision)
 	char	*s;
 	int		len;
 
+	if (n == 0 && precision == 0)
+		return (0);
 	s = ft_itoa_base_int(n, 10, 0);
 	if (!s)
 		return (-1);
@@ -45,6 +47,6 @@ int	ft_precision_int(int n, int precision)
 		len = ft_putstr_len(s);
 	else
 		len = ft_sign(precision - len, s);
-	free (s);
+	free(s);
 	return (len);
 }
