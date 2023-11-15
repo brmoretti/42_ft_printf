@@ -56,7 +56,7 @@ To use ft_printf in your C project, follow these steps:
    ./your_program
    ```
 
-##Project Structure
+## Project Structure
 
 The project is organized as follows:
 
