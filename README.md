@@ -1,4 +1,4 @@
-# 42: ft_printf Including Bonus
+# 42: ft_printf: all bonuses implemented sucessfully
 <p align="center">
   <img src="https://game.42sp.org.br/static/assets/achievements/ft_printfm.png" alt="Achievement Image"><br>
 </p>
