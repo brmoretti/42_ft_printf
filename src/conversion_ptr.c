@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_ptr.c                                     :+:      :+:    :+:   */
+/*   conversion_ptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/15 12:46:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/12/21 03:50:43 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_null_pointer(t_flags *flags)
+static char	*null_pointer(void)
 {
-	int	len;
+	char	*str;
 
-	len = ft_putstr_len("(nil)");
-	len += ft_dash_flag(len, flags->dash);
-	free(flags);
-	return (len);
+	str = ft_strdup("(nil)");
+	if (!str)
+		return (NULL);
+	return (str);
 }
 
-int	ft_parse_ptr(char **token, unsigned long ptr)
+int	parse_ptr(char **token, unsigned long ptr)
 {
-	char	*address;
+	char	*str;
 	int		len;
 	t_flags	*flags;
 
-	flags = ft_get_flags(*token);
+	flags = get_flags(*token);
 	free(*token);
 	if (!flags)
 		return (-1);
 	if (!ptr)
-		return (ft_null_pointer(flags));
-	address = ft_itoa_base_ulong(ptr, 16, 0);
-	if (!address)
-		return (-1);
-	len = ft_putstr_len("0x") + ft_putstr_len(address);
-	len += ft_dash_flag(len, flags->dash);
+		str = null_pointer();
+	else
+		str = ft_strmerge(ft_strdup("0x"), ft_itoa_base_ulong(ptr, 16));
+	str = dash_flag(str, flags->dash);
+	str = len_flag(str, flags->len);
+	len = ft_putstr_len(str);
 	free(flags);
-	free(address);
+	free(str);
 	return (len);
 }

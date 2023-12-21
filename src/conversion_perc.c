@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   conversion_perc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 09:21:06 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/15 12:43:46 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/12/21 00:27:35 by brmoretti         #+#    #+#             */
+/*   Updated: 2023/12/21 03:11:58 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "ft_printf.h"
+
+int	parse_perc(char **token)
 {
-	if ('0' <= c && c <= '9')
-		return (2048);
-	return (0);
+	free(*token);
+	write(1, "%", 1);
+	return (1);
 }

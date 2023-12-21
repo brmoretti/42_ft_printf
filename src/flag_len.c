@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   flag_len.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 20:46:36 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/15 12:43:39 by bmoretti         ###   ########.fr       */
+/*   Created: 2023/12/20 19:45:19 by brmoretti         #+#    #+#             */
+/*   Updated: 2023/12/21 03:47:16 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*len_flag(char *str, int len_flag)
 {
-	char	*ptr;
+	int		left_fill;
 
-	if (!n)
-		return ;
-	ptr = (char *)s;
-	while (n-- != 0)
-		*(ptr++) = '\0';
+	left_fill = len_flag - (int)ft_strlen(str);
+	while (left_fill-- > 0)
+		str = ft_strmerge(ft_strdup(" "), str);
+	return (str);
 }

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/15 12:46:15 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/12/21 03:52:47 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdarg.h>
 
 static int	ft_free_putstr(char **s)
 {
@@ -31,17 +32,17 @@ static void	ft_conversion_flow(char **tab, va_list args, int *len)
 		{
 			c = ft_last_char(*tab);
 			if (c == 'c')
-				*len += ft_parse_char(tab, va_arg(args, int));
+				*len += parse_char(tab, va_arg(args, int));
 			else if (c == 's')
-				*len += ft_parse_string(tab, va_arg(args, char *));
+				*len += parse_string(tab, va_arg(args, char *));
 			else if (c == 'p')
-				*len += ft_parse_ptr(tab, va_arg(args, unsigned long));
+				*len += parse_ptr(tab, va_arg(args, unsigned long));
 			else if (c == 'd' || c == 'i')
-				*len += ft_parse_int(tab, va_arg(args, int));
+				*len += parse_int(tab, va_arg(args, int));
 			else if (c == 'u' || c == 'x' || c == 'X')
-				*len += ft_parse_uint(tab, va_arg(args, unsigned int), c);
+				*len += parse_uint(tab, va_arg(args, unsigned int), c);
 			else if (c == '%')
-				*len += ft_parse_char(tab, '%');
+				*len += parse_perc(tab);
 		}
 		else
 			*len += ft_free_putstr(tab);
@@ -49,6 +50,35 @@ static void	ft_conversion_flow(char **tab, va_list args, int *len)
 	}
 }
 
+/**
+ * @brief The ft_printf function is a formatted output function that prints
+ * data to the standard output stream.
+ * It supports various conversion specifiers and flags to format the output
+ * according to the given format string.
+ * 
+ * Conversions:
+ * - %d or %i: Signed decimal integer
+ * - %u: Unsigned decimal integer
+ * - %x or %X: Unsigned hexadecimal
+ * - %c: Character
+ * - %s: String
+ * - %p: Pointer
+ * 
+ * Flags:
+ * - -: Left-align the output
+ * - +: Prepend a plus sign for positive numbers
+ * - 0: Pad with zeros instead of spaces
+ * - #: Use alternative form for conversions
+ * - ' ': Prepend a space for positive numbers
+ * - width: Minimum width of the field
+ * - precision: Number of digits after the decimal point for floating
+ *   point conversions
+ * 
+ * @param format The format string specifying the output format.
+ * @param ... Additional arguments to be formatted and printed.
+ * @return The number of characters printed, or a negative value if an error
+ * occurred.
+ */
 int	ft_printf(const char *format, ...)
 {
 	char	**tab;
