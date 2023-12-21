@@ -5,7 +5,7 @@ CC					=	cc
 CC_FLAGS			=	-Wall	\
 						-Wextra	\
 						-Werror	\
-						-g3		#TEST ONLY
+						-O2
 AR					=	ar
 AR_FLAGS			=	rcs
 
