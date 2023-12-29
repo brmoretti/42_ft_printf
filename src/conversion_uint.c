@@ -6,7 +6,7 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:49:22 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/29 11:13:50 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static char	*get_conversion(char conversion, unsigned int n)
 	char	*s;
 
 	if (conversion == 'u')
-		s = ft_itoa_base_uint(n, 10);
+		s = ft_utoa_base(n, 10);
 	else if (conversion == 'x')
-		s = ft_itoa_base_uint(n, 16);
+		s = ft_utoa_base(n, 16);
 	else
-		s = ft_itoa_base_uint_case(n, 16, uppercase);
+		s = ft_utoa_base_case(n, 16, uppercase);
 	return (s);
 }
 

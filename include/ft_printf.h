@@ -6,7 +6,7 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 23:24:33 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:49:17 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/29 11:12:28 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ enum	e_case
 
 int		ft_printf(const char *format, ...);
 
-char	*ft_itoa_base_int_case(int n, int base, int hexcase);
-char	*ft_itoa_base_uint_case(unsigned int n, int base, int hexcase);
-char	*ft_itoa_base_ulong_case(unsigned long n, int base, int hexcase);
+char	*ft_itoa_base_case(int n, int base, int hexcase);
+char	*ft_utoa_base_case(unsigned int n, int base, int hexcase);
+char	*ft_ultoa_base_case(unsigned long n, int base, int hexcase);
 char	**ft_clear_tab(char **tab);
 char	**ft_split_printf(const char *s);
 char	ft_last_char(const char *str);

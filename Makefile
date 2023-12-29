@@ -5,7 +5,7 @@ CC					=	cc
 CC_FLAGS			=	-Wall	\
 						-Wextra	\
 						-Werror	\
-						-O2
+						-O3
 AR					=	ar
 AR_FLAGS			=	rcs
 
@@ -23,11 +23,11 @@ SRC_FILES			=	conversion_char.c	\
 						flag_zero.c			\
 						flags_get.c			\
 						ft_clear_tab.c		\
-						ft_itoas_case.c		\
 						ft_last_char.c		\
 						ft_printf.c			\
 						ft_putstr_len.c		\
-						ft_split_printf.c
+						ft_split_printf.c	\
+						ft_xtoa_case.c
 SRCS				=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 INCLUDE_DIR			=	include
 INCLUDE_FILES		=	ft_printf.h

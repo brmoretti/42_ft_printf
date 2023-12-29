@@ -6,7 +6,7 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:07:10 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:50:43 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/29 11:13:08 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	parse_ptr(char **token, unsigned long ptr)
 	if (!ptr)
 		str = null_pointer();
 	else
-		str = ft_strmerge(ft_strdup("0x"), ft_itoa_base_ulong(ptr, 16));
+		str = ft_strmerge(ft_strdup("0x"), ft_ultoa_base(ptr, 16));
 	str = dash_flag(str, flags->dash);
 	str = len_flag(str, flags->len);
 	len = ft_putstr_len(str);
