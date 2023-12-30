@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:25:43 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/29 11:13:50 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:29:02 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 static char	*hash_flag(unsigned int n, char conversion,
 		t_flags *flags, char *number)

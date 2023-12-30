@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:11:30 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:42:52 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:29:29 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 static int	get_flag_attribute(const char *s, char flag, int atoi)
 {

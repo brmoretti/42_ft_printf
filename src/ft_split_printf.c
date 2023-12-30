@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_printf.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoretti <bmoretti@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:11:41 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/11/15 12:46:16 by bmoretti         ###   ########.fr       */
+/*   Updated: 2023/12/30 15:30:33 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 static int	ft_is_in_conversion_set(const char c)
 {

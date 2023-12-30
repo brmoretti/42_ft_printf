@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:20:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:48:48 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:28:37 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 static char	*space_plus_flags(int n, t_flags *flags, char *str)
 {

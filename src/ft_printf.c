@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:57:47 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:52:47 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:30:09 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 #include <stdarg.h>
 
 static int	ft_free_putstr(char **s)

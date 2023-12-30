@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:33:13 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:45:47 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:28:29 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 int	parse_char(char **token, int c)
 {

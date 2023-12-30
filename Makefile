@@ -30,7 +30,8 @@ SRC_FILES			=	conversion_char.c	\
 						ft_xtoa_case.c
 SRCS				=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 INCLUDE_DIR			=	include
-INCLUDE_FILES		=	ft_printf.h
+INCLUDE_FILES		=	ft_printf_aux.h		\
+						ft_printf.h
 INCLUDES			=	$(addprefix $(INCLUDE_DIR)/, $(INCLUDE_FILES))
 BUILD_DIR			=	build
 OBJS				=	$(SRC_FILES:.c=.o)

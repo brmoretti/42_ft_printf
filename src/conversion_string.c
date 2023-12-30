@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:50:35 by bmoretti          #+#    #+#             */
-/*   Updated: 2023/12/21 03:47:04 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:28:56 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 static int	null_string(t_flags *flags)
 {

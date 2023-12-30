@@ -6,11 +6,11 @@
 /*   By: brmoretti <brmoretti@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:08:59 by brmoretti         #+#    #+#             */
-/*   Updated: 2023/12/29 11:11:23 by brmoretti        ###   ########.fr       */
+/*   Updated: 2023/12/30 15:30:38 by brmoretti        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_aux.h"
 
 char	*ft_itoa_base_case(int n, int base, int hexcase)
 {
